@@ -1,0 +1,622 @@
+  <!-- <p>recrutement works!</p> -->
+
+  <!--<div mat-dialog-content>
+  <form [formGroup]="employeeForm" >
+
+    <mat-form-field appearance="outline">
+      <mat-label>Nom</mat-label>
+      <input formControlName="nom" matInput placeholder="Nom" required>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" style="margin-left:10px">
+      <mat-label>Prénom</mat-label>
+      <input formControlName="prenom" matInput placeholder="Prénom" required>
+    </mat-form-field>
+
+    <div class="example-container">
+      <mat-form-field appearance="fill">
+        <mat-label>Enter your email</mat-label>
+        <input matInput placeholder="pat@example.com" [formControl]="email" required>
+        <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
+      </mat-form-field>
+    </div>
+
+    <mat-form-field appearance="outline" class="m-4">
+      <mat-label>Choose a date</mat-label>
+      <input formControlName="hiredate" matInput [matDatepicker]="picker">
+      <mat-hint>MM/DD/YYYY</mat-hint>
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+
+    <button mat-button [matMenuTriggerFor]="menu" class="ms-2">Menu</button>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item>Item 1</button>
+      <button mat-menu-item>Item 2</button>
+    </mat-menu>
+
+    <label for=""><h1>Prod choose</h1></label>
+    <mat-radio-group class="example-radio-group">
+      <mat-radio-button *ngFor="let genre of listeGenre" [value]="genre" class="example-radio-button">
+        {{genre}}
+      </mat-radio-button> <br>
+    </mat-radio-group>
+
+    <mat-form-field appearance="outline" >
+      <mat-label>Prix </mat-label>
+      <input matInput type="number" placeholder="Placeholder" required>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" style="width: 100%;">
+      <mat-label>Comment </mat-label>
+      <textarea matInput placeholder="Commentaire" required></textarea>
+    </mat-form-field>
+
+  </form>
+  </div>
+
+    <div mat-dialog-action [align]="'end'">
+      <button mat-raised-button color="warn" mat-dialog-close>Annuler</button>
+      <button mat-raised-button color="primary" style="margin-left:8px" (click)="addEmployee()" >Ajouter</button>
+    </div> -->
+
+
+
+        <!--
+        <mat-form-field appearance="outline">
+          <mat-label>Téléphone</mat-label>
+          <example-tel-input formControlName="tel" required></example-tel-input>
+          <mat-icon matSuffix>phone</mat-icon>
+          <mat-hint>Veuillez saisir un numéro</mat-hint>
+        </mat-form-field> -->
+
+
+    <h1  mat-dialog-title  >Ajouter un employé</h1>
+    <hr size="4">
+
+
+<div mat-dialog-content>
+
+  <form [formGroup]="employeeForm" >
+
+    <!-- 11111111111111111111111 -->
+    <!-- <u><div class="titre2">Informations Personnelles</div></u>
+
+
+    <div class="titre3"><u>Biographie</u></div>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Nom</mat-label>
+        <input formControlName="nom" matInput placeholder="Nom" name="nom" id="nom" required>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Prénom</mat-label>
+        <input formControlName="prenom" matInput placeholder="Prénom" name="prenom" id="prenom" required>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Deuxième Prénom</mat-label>
+        <input formControlName="prenom2" matInput placeholder="Deuxième Prénom" name="prenom2" id="prenom2" >
+      </mat-form-field>
+
+        <input hidden #fileUpload class="form-control"  type="file" accept="image/png, image/jpeg? image/jpg" formControlName="img" name="img" id="img" />
+        <button mat-stroked-button color="primary" (click)="fileUpload.click()">
+          <mat-icon>add_a_photo</mat-icon>
+          Photo
+        </button>
+
+
+
+        <mat-form-field appearance="outline">
+          <mat-label>Sexe</mat-label>
+          <mat-select name="sexe" id="sexe" formControlName="typeSexe" placeholder="choisissez un sexe"  >
+            <mat-option >--</mat-option>
+            <mat-option name="homme" value="homme">Homme</mat-option>
+            <mat-option name="femme" value="femme">Femme</mat-option>
+          </mat-select>
+          <mat-error>Veuillez choisir un sexe</mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Situation</mat-label>
+          <mat-select name="situation" id="situation" formControlName="typeSituation" placeholder="Situation"  >
+            <mat-option >--</mat-option>
+            <mat-option name="celibataire" value="celibataire">Célibataire</mat-option>
+            <mat-option name="marie" value="marie">Marié</mat-option>
+            <mat-option name="divorce" value="divorce">Divorcé</mat-option>
+            <mat-option name="separe" value="separe">Séparé</mat-option>
+            <mat-option name="veuf" value="veuf">Veuf</mat-option>
+          </mat-select>
+          <mat-error>Veuillez choisir une situation</mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="">
+          <mat-label>Date de naissance</mat-label>
+          <input  name="date_naiss" id="date_naiss" formControlName="date_naiss" matInput [matDatepicker]="picker" required>
+          <mat-hint>MM/DD/YYYY</mat-hint>
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" >
+          <mat-label>Lieu de naissance</mat-label>
+          <textarea matInput placeholder="Lieu de naissance"  formControlName="lieu_naiss" name="lieu_naiss" id="lieu_naiss"  ></textarea>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Pays</mat-label>
+          <mat-select name="pays" id="pays" formControlName="pays" placeholder="Pays"  >
+            <mat-option >--</mat-option>
+            <mat-option name="maroc" value="maroc">Maroc</mat-option>
+            <mat-option name="france" value="france">France</mat-option>
+            <mat-option name="india" value="india">India</mat-option>
+          </mat-select>
+          <mat-error>Veuillez choisir un pays</mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Ville</mat-label>
+          <mat-select name="ville" id="ville" formControlName="ville" placeholder="Ville"  >
+            <mat-option >--</mat-option>
+            <mat-option name="maroc" value="maroc">Casablanca</mat-option>
+            <mat-option name="france" value="france">Rabat</mat-option>
+            <mat-option name="india" value="india">Agadir</mat-option>
+          </mat-select>
+          <mat-error>Veuillez choisir une ville</mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Nationalité</mat-label>
+          <mat-select name="nationalite" id="nationalite" formControlName="nationalite" placeholder="Nationalité"  >
+            <mat-option >--</mat-option>
+            <mat-option name="mar" value="ar">Marocaine</mat-option>
+            <mat-option name="fren" value="fr"></mat-option>
+            <mat-option name="eng" value="ang"></mat-option>
+
+          </mat-select>
+          <mat-error>Veuillez choisir une nationalité</mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Langue</mat-label>
+          <mat-select name="langue" id="langue" formControlName="langue" placeholder="Langue maternelle"  >
+            <mat-option >--</mat-option>
+            <mat-option name="ar" value="ar">Arab</mat-option>
+            <mat-option name="fr" value="fr">Francais</mat-option>
+            <mat-option name="ang" value="ang">Anglais</mat-option>
+
+          </mat-select>
+          <mat-error>Veuillez choisir une langue</mat-error>
+        </mat-form-field>
+
+
+
+        <div class="titre3"><u>Contacts & Adresses</u></div>
+
+
+        <mat-form-field appearance="outline">
+          <mat-label>Email</mat-label>
+          <input matInput placeholder="email@example.com" [formControl]="email"  name="email" id="email" required>
+          <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" >
+          <mat-label>Adresse</mat-label>
+          <textarea formControlName="adress" matInput placeholder="Lieu de naissance" name="adress" id="adress" ></textarea>
+        </mat-form-field>
+
+
+
+        <div class="titre3"><u>Informations d’identifiant</u></div>
+
+
+        <mat-form-field appearance="outline">
+          <mat-label>Carte d'identité nationale</mat-label>
+          <input formControlName="cin" matInput placeholder="CIN" name="cin" id="cin" required>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Passeport</mat-label>
+          <input formControlName="passeport" matInput placeholder="Passeport" name="passeport" id="passeport" >
+        </mat-form-field>
+
+
+        <mat-form-field appearance="outline">
+          <mat-label>Identifiant d’assurance maladie</mat-label>
+          <input formControlName="id_ass" matInput placeholder="ID d’assurance maladie" name="id_ass" id="id_ass" >
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Identifiant de sécurité sociale</mat-label>
+          <input formControlName="id_sec" matInput placeholder="ID de sécurité sociale" name="id_sec" id="id_sec" >
+        </mat-form-field>
+
+
+        <div class="titre3"><u>Personne à contacter en cas d’urgence</u></div>
+
+        <mat-form-field appearance="outline">
+          <mat-label>En cas d’urgence, contacter :</mat-label>
+          <input formControlName="nom_contact" matInput placeholder="Nom & Prénom" name="nom_contact" id="nom_contact" >
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Relation</mat-label>
+          <input formControlName="rel_contact" matInput placeholder="Père, Mère, Frère ..." name="rel_contact" id="rel_contact" >
+        </mat-form-field>
+
+
+        <mat-form-field appearance="outline" >
+          <mat-label>Adress</mat-label>
+          <textarea formControlName="adress_contact" matInput placeholder="Adresse" name="adress_contact" id="adress_contact" ></textarea>
+        </mat-form-field> -->
+
+
+  <!-- 2222222222222222222222 -->
+        <!-- <u><div class="titre2">Informations Professionnelles</div></u>
+
+
+        <div class="titre3"><u>Collaborateur</u></div>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Identifiant</mat-label>
+          <input formControlName="id" matInput placeholder="ID" name="id" id="id"  required>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="">
+          <mat-label>Date d'embauche</mat-label>
+          <input formControlName="hiredate"  name="hiredate" id="hiredate" matInput [matDatepicker]="picker2" required>
+          <mat-hint>MM/DD/YYYY</mat-hint>
+          <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+          <mat-datepicker #picker2></mat-datepicker>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Poste</mat-label>
+          <input formControlName="poste" matInput placeholder="Poste" name="poste" id="poste" >
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Motif</mat-label>
+          <input formControlName="motif" matInput placeholder="Motif" name="motif" id="motif" >
+        </mat-form-field>
+
+        <div class="titre3"><u>Responsable</u></div>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Responsable</mat-label>
+          <input formControlName="nom_respo" matInput placeholder="Nom & Prénom" name="nom_respo" id="nom_respo" >
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Identifiant de responsable</mat-label>
+          <input formControlName="id_respo" matInput placeholder="ID de responsable" name="id_respo" id="id_respo" >
+        </mat-form-field>
+
+
+        <mat-form-field appearance="outline">
+          <mat-label>Email</mat-label>
+          <input matInput placeholder="email@example.com" [formControl]="email" formControlName="mail_respo" name="mail_respo" id="mail_respo" required>
+          <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
+        </mat-form-field>
+
+        <div class="titre3"><u>Entreprise</u></div>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Nom de l’entreprise</mat-label>
+          <input formControlName="nom_entre" matInput placeholder="Nom de l’entreprise" name="nom_entre" id="nom_entre" >
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" >
+          <mat-label>Adresse de l'entreprise</mat-label>
+          <textarea formControlName="add_entre" matInput placeholder="Adresse de l'entreprise" name="add_entre" id="add_entre" ></textarea>
+        </mat-form-field>
+
+ -->
+
+
+
+
+
+
+
+
+
+
+
+      <!--
+
+              <mat-form-field appearance="fill">
+                <mat-label>Phone number</mat-label>
+                <example-tel-input  required></example-tel-input>
+                <mat-icon matSuffix>phone</mat-icon>
+                <mat-hint>Include area code</mat-hint>
+              </mat-form-field>
+      -->
+
+
+
+    <mat-accordion class="example-headers-align">
+
+      <mat-expansion-panel [expanded]="step === 0" (opened)="setStep(0)" hideToggle>
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            Informations Personnelles
+          </mat-panel-title>
+          <mat-panel-description>
+
+            <mat-icon>account_circle</mat-icon>
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+
+
+
+
+
+        <div class="titre3"><u>Biographie</u></div>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Nom</mat-label>
+          <input formControlName="nom" matInput placeholder="Nom" name="nom" id="nom" required>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Prénom</mat-label>
+          <input formControlName="prenom" matInput placeholder="Prénom" name="prenom" id="prenom" required>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Deuxième Prénom</mat-label>
+          <input formControlName="prenom2" matInput placeholder="Deuxième Prénom" name="prenom2" id="prenom2" >
+        </mat-form-field>
+
+          <input hidden #fileUpload class="form-control"  type="file" accept="image/png, image/jpeg? image/jpg" formControlName="img" name="img" id="img" />
+          <button mat-stroked-button color="primary" (click)="fileUpload.click()">
+            <mat-icon>add_a_photo</mat-icon>
+            Photo
+          </button>
+
+
+
+          <mat-form-field appearance="outline">
+            <mat-label>Sexe</mat-label>
+            <mat-select name="sexe" id="sexe" formControlName="typeSexe" placeholder="choisissez un sexe"  >
+              <mat-option >--</mat-option>
+              <mat-option name="homme" value="homme">Homme</mat-option>
+              <mat-option name="femme" value="femme">Femme</mat-option>
+            </mat-select>
+            <mat-error>Veuillez choisir un sexe</mat-error>
+          </mat-form-field>
+
+          <mat-form-field appearance="outline">
+            <mat-label>Situation</mat-label>
+            <mat-select name="situation" id="situation" formControlName="typeSituation" placeholder="Situation"  >
+              <mat-option >--</mat-option>
+              <mat-option name="celibataire" value="celibataire">Célibataire</mat-option>
+              <mat-option name="marie" value="marie">Marié</mat-option>
+              <mat-option name="divorce" value="divorce">Divorcé</mat-option>
+              <mat-option name="separe" value="separe">Séparé</mat-option>
+              <mat-option name="veuf" value="veuf">Veuf</mat-option>
+            </mat-select>
+            <mat-error>Veuillez choisir une situation</mat-error>
+          </mat-form-field>
+
+          <mat-form-field appearance="outline" class="">
+            <mat-label>Date de naissance</mat-label>
+            <input  name="date_naiss" id="date_naiss" formControlName="date_naiss" matInput [matDatepicker]="picker" required>
+            <mat-hint>MM/DD/YYYY</mat-hint>
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+          </mat-form-field>
+
+          <mat-form-field appearance="outline" >
+            <mat-label>Lieu de naissance</mat-label>
+            <textarea matInput placeholder="Lieu de naissance"  formControlName="lieu_naiss" name="lieu_naiss" id="lieu_naiss"  ></textarea>
+          </mat-form-field>
+
+          <mat-form-field appearance="outline">
+            <mat-label>Pays</mat-label>
+            <mat-select name="pays" id="pays" formControlName="pays" placeholder="Pays"  >
+              <mat-option >--</mat-option>
+              <mat-option name="maroc" value="maroc">Maroc</mat-option>
+              <mat-option name="france" value="france">France</mat-option>
+              <mat-option name="india" value="india">India</mat-option>
+            </mat-select>
+            <mat-error>Veuillez choisir un pays</mat-error>
+          </mat-form-field>
+
+          <mat-form-field appearance="outline">
+            <mat-label>Ville</mat-label>
+            <mat-select name="ville" id="ville" formControlName="ville" placeholder="Ville"  >
+              <mat-option >--</mat-option>
+              <mat-option name="maroc" value="maroc">Casablanca</mat-option>
+              <mat-option name="france" value="france">Rabat</mat-option>
+              <mat-option name="india" value="india">Agadir</mat-option>
+            </mat-select>
+            <mat-error>Veuillez choisir une ville</mat-error>
+          </mat-form-field>
+
+          <mat-form-field appearance="outline">
+            <mat-label>Nationalité</mat-label>
+            <mat-select name="nationalite" id="nationalite" formControlName="nationalite" placeholder="Nationalité"  >
+              <mat-option >--</mat-option>
+              <mat-option name="mar" value="ar">Marocaine</mat-option>
+              <mat-option name="fren" value="fr"></mat-option>
+              <mat-option name="eng" value="ang"></mat-option>
+
+            </mat-select>
+            <mat-error>Veuillez choisir une nationalité</mat-error>
+          </mat-form-field>
+
+          <mat-form-field appearance="outline">
+            <mat-label>Langue</mat-label>
+            <mat-select name="langue" id="langue" formControlName="langue" placeholder="Langue maternelle"  >
+              <mat-option >--</mat-option>
+              <mat-option name="ar" value="ar">Arab</mat-option>
+              <mat-option name="fr" value="fr">Francais</mat-option>
+              <mat-option name="ang" value="ang">Anglais</mat-option>
+
+            </mat-select>
+            <mat-error>Veuillez choisir une langue</mat-error>
+          </mat-form-field>
+
+
+
+          <div class="titre3"><u>Contacts & Adresses</u></div>
+
+
+          <mat-form-field appearance="outline">
+            <mat-label>Email</mat-label>
+            <input matInput placeholder="email@example.com" [formControl]="email"  name="email" id="email" required>
+            <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
+          </mat-form-field>
+
+          <mat-form-field appearance="outline" >
+            <mat-label>Adresse</mat-label>
+            <textarea formControlName="adress" matInput placeholder="Lieu de naissance" name="adress" id="adress" ></textarea>
+          </mat-form-field>
+
+
+
+          <div class="titre3"><u>Informations d’identifiant</u></div>
+
+
+          <mat-form-field appearance="outline">
+            <mat-label>Carte d'identité nationale</mat-label>
+            <input formControlName="cin" matInput placeholder="CIN" name="cin" id="cin" required>
+          </mat-form-field>
+
+          <mat-form-field appearance="outline">
+            <mat-label>Passeport</mat-label>
+            <input formControlName="passeport" matInput placeholder="Passeport" name="passeport" id="passeport" >
+          </mat-form-field>
+
+
+          <mat-form-field appearance="outline">
+            <mat-label>Identifiant d’assurance maladie</mat-label>
+            <input formControlName="id_ass" matInput placeholder="ID d’assurance maladie" name="id_ass" id="id_ass" >
+          </mat-form-field>
+
+          <mat-form-field appearance="outline">
+            <mat-label>Identifiant de sécurité sociale</mat-label>
+            <input formControlName="id_sec" matInput placeholder="ID de sécurité sociale" name="id_sec" id="id_sec" >
+          </mat-form-field>
+
+
+          <div class="titre3"><u>Personne à contacter en cas d’urgence</u></div>
+
+          <mat-form-field appearance="outline">
+            <mat-label>En cas d’urgence, contacter :</mat-label>
+            <input formControlName="nom_contact" matInput placeholder="Nom & Prénom" name="nom_contact" id="nom_contact" >
+          </mat-form-field>
+
+          <mat-form-field appearance="outline">
+            <mat-label>Relation</mat-label>
+            <input formControlName="rel_contact" matInput placeholder="Père, Mère, Frère ..." name="rel_contact" id="rel_contact" >
+          </mat-form-field>
+
+
+          <mat-form-field appearance="outline" >
+            <mat-label>Adress</mat-label>
+            <textarea formControlName="adress_contact" matInput placeholder="Adresse" name="adress_contact" id="adress_contact" ></textarea>
+          </mat-form-field>
+
+
+
+
+
+        <mat-action-row>
+          <button mat-button color="primary" (click)="nextStep()">Next</button>
+        </mat-action-row>
+      </mat-expansion-panel>
+
+      <mat-expansion-panel [expanded]="step === 1" (opened)="setStep(1)" hideToggle>
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            Informations Professionnelles
+          </mat-panel-title>
+          <mat-panel-description>
+
+            <mat-icon>map</mat-icon>
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+
+
+        <div class="titre3"><u>Collaborateur</u></div>
+
+        <mat-form-field appearance="outline" >
+          <mat-label>Identifiant</mat-label>
+          <input type="number" value="ID" matInput name="id" id="id" disabled >
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="">
+          <mat-label>Date d'embauche</mat-label>
+          <input formControlName="hiredate"  name="hiredate" id="hiredate" matInput [matDatepicker]="picker2" required>
+          <mat-hint>MM/DD/YYYY</mat-hint>
+          <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+          <mat-datepicker #picker2></mat-datepicker>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" aria-disabled="true">
+          <mat-label>Poste</mat-label>
+          <input formControlName="poste" matInput placeholder="Poste" name="poste" id="poste" >
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Motif</mat-label>
+          <input formControlName="motif" matInput placeholder="Motif" name="motif" id="motif" >
+        </mat-form-field>
+
+        <div class="titre3"><u>Responsable</u></div>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Responsable</mat-label>
+          <input formControlName="nom_respo" matInput placeholder="Nom & Prénom" name="nom_respo" id="nom_respo" >
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Identifiant de responsable</mat-label>
+          <input formControlName="id_respo" matInput placeholder="ID de responsable" name="id_respo" id="id_respo" >
+        </mat-form-field>
+
+
+        <mat-form-field appearance="outline">
+          <mat-label>Email</mat-label>
+          <input matInput placeholder="email@example.com" [formControl]="email" formControlName="mail_respo" name="mail_respo" id="mail_respo" required>
+          <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
+        </mat-form-field>
+
+        <div class="titre3"><u>Entreprise</u></div>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Nom de l’entreprise</mat-label>
+          <input formControlName="nom_entre" matInput placeholder="Nom de l’entreprise" name="nom_entre" id="nom_entre" >
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" >
+          <mat-label>Adresse de l'entreprise</mat-label>
+          <textarea formControlName="add_entre" matInput placeholder="Adresse de l'entreprise" name="add_entre" id="add_entre" ></textarea>
+        </mat-form-field>
+
+
+        <mat-action-row>
+          <button mat-button color="warn" (click)="prevStep()">Previous</button>
+          <button mat-button color="primary" (click)="nextStep()">End</button>
+        </mat-action-row>
+      </mat-expansion-panel>
+
+
+
+    </mat-accordion>
+
+  </form>
+</div>
+
+
+  <div mat-dialog-actions [align]="'end'">
+    <button mat-raised-button mat-dialog-close color="warn" >Annuler</button>
+    <button mat-raised-button color="primary" style="margin-left:8px;" (click)="addEmployee()"> {{actionBtn}} </button>
+  </div>
+
+
+
