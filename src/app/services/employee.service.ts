@@ -32,12 +32,19 @@ export class EmployeeService {
       return this.httpClient.get<Employee>(this.baseUrl+'/FindById/'+id)
     }
 
+    // Delete Employee
     deleteEmployeeById(id: number, employee : Employee): Observable<Object>{
       return this.httpClient.put(this.baseUrl+'/delete/'+id, employee)
     }
 
-    UpdateEmployee(id : number, employee : Employee) : Observable<Object> {
-      return this.httpClient.put(this.baseUrl+'/update/'+id, employee);
+    deleteEmployee(id : number) : Observable<Object> {
+      return this.httpClient.delete(this.baseUrl+id,);
+    }
+
+
+    // Update Employee
+    putEmployee(id : number,data:any) : Observable<Object> {
+      return this.httpClient.put(this.baseUrl+id, data);
     }
 
 }

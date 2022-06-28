@@ -29,13 +29,19 @@ export class ListeEmployeesComponent implements OnInit {
   openDialog() {
     const dialogRef = this.dialog.open(RecrutementComponent,{
       width : '70%'
-    });
+    }).afterClosed().subscribe(val=>{
+      if(val==='save'){
+        this.getAllEmployees();
+        console.log(`Dialog result: ${val}`);
+      }
+    })
 
-    dialogRef.afterClosed().subscribe(result => {
-      console.log(`Dialog result: ${result}`);
-    });
+    // dialogRef.afterClosed().subscribe(result => {
+    //   console.log(`Dialog result: ${result}`);
+    // });
 
   }
+
 
   getAllEmployees(){
     console.log("listes des collaborateurs")
@@ -66,10 +72,27 @@ export class ListeEmployeesComponent implements OnInit {
     this.dialog.open(RecrutementComponent,{
       width:'60%',
       data : row
+    }).afterClosed().subscribe(val=>{
+      if(val==='update'){
+        this.getAllEmployees();
+        console.log(`Dialog result: ${val}`);
+      }
     })
 
   }
 
+  deleteEmployee(id:number){
+    this.employeeService.deleteEmployee(id)
+    .subscribe({
+      next:(res)=>{
+        alert("Collaborateur supprimer avec succès");
+        this.getAllEmployees();
+      },
+      error:()=>{
+        alert("Erreur de suppression du collaborateur")
+    }
+    })
 
+  }
 
 }
