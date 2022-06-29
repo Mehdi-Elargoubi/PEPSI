@@ -10,6 +10,13 @@ table {
   width: 100%;
 }
 
-/* td, th {
-  width: 25%;
-} */
+
+.example-button {
+  margin-top: 16px;
+}
+
+.example-tooltip{
+  background: #1c8eb7;
+  background-color: #1c8eb7;
+}
+

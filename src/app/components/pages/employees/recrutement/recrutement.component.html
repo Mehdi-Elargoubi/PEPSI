@@ -344,12 +344,10 @@
             Informations Personnelles
           </mat-panel-title>
           <mat-panel-description>
-
+            <span class="example-spacer"></span>
             <mat-icon>account_circle</mat-icon>
           </mat-panel-description>
         </mat-expansion-panel-header>
-
-
 
 
 
@@ -410,12 +408,12 @@
           </mat-form-field>
 
           <mat-form-field appearance="outline" >
-            <mat-label>Lieu de naissance</mat-label>
+            <mat-label>Lieu de naissance  <mat-icon> location_on</mat-icon></mat-label>
             <textarea matInput placeholder="Lieu de naissance"  formControlName="lieu_naiss" name="lieu_naiss" id="lieu_naiss"  ></textarea>
           </mat-form-field>
 
           <mat-form-field appearance="outline">
-            <mat-label>Pays</mat-label>
+            <mat-label><mat-icon>location_city</mat-icon>  Pays</mat-label>
             <mat-select name="pays" id="pays" formControlName="pays" placeholder="Pays"  >
               <mat-option >--</mat-option>
               <mat-option name="maroc" value="maroc">Maroc</mat-option>
@@ -426,7 +424,7 @@
           </mat-form-field>
 
           <mat-form-field appearance="outline">
-            <mat-label>Ville</mat-label>
+            <mat-label><mat-icon>location_city</mat-icon>  Ville</mat-label>
             <mat-select name="ville" id="ville" formControlName="ville" placeholder="Ville"  >
               <mat-option >--</mat-option>
               <mat-option name="maroc" value="maroc">Casablanca</mat-option>
@@ -437,7 +435,7 @@
           </mat-form-field>
 
           <mat-form-field appearance="outline">
-            <mat-label>Nationalité</mat-label>
+            <mat-label><mat-icon>language</mat-icon>  Nationalité</mat-label>
             <mat-select name="nationalite" id="nationalite" formControlName="nationalite" placeholder="Nationalité"  >
               <mat-option >--</mat-option>
               <mat-option name="mar" value="ar">Marocaine</mat-option>
@@ -449,7 +447,7 @@
           </mat-form-field>
 
           <mat-form-field appearance="outline">
-            <mat-label>Langue</mat-label>
+            <mat-label><mat-icon>language</mat-icon>  Langue</mat-label>
             <mat-select name="langue" id="langue" formControlName="langue" placeholder="Langue maternelle"  >
               <mat-option >--</mat-option>
               <mat-option name="ar" value="ar">Arab</mat-option>
@@ -464,16 +462,22 @@
 
           <div class="titre3"><u>Contacts & Adresses</u></div>
 
+          <mat-form-field class="example-full-width" appearance="outline">
+            <mat-label>Téléphone</mat-label>
+            <input type="number" matInput maxlength="16" placeholder="555-555-1234" formControlName="tel" name="" id="tel">
+            <mat-icon matSuffix>phone</mat-icon>
+          </mat-form-field>
 
           <mat-form-field appearance="outline">
             <mat-label>Email</mat-label>
-            <input matInput placeholder="email@example.com" [formControl]="email"  name="email" id="email" required>
+            <input matInput placeholder="email@example.com" [formControl]="email" formControlName="email"  name="email" id="email" required>
             <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
+            <mat-icon matSuffix>email</mat-icon>
           </mat-form-field>
 
           <mat-form-field appearance="outline" >
-            <mat-label>Adresse</mat-label>
-            <textarea formControlName="adress" matInput placeholder="Lieu de naissance" name="adress" id="adress" ></textarea>
+            <mat-label>Adresse  <mat-icon>home</mat-icon></mat-label>
+            <textarea formControlName="adress" matInput placeholder="Adresse" name="adress" id="adress" ></textarea>
           </mat-form-field>
 
 
@@ -506,7 +510,7 @@
           <div class="titre3"><u>Personne à contacter en cas d’urgence</u></div>
 
           <mat-form-field appearance="outline">
-            <mat-label>En cas d’urgence, contacter :</mat-label>
+            <mat-label><mat-icon>account_box</mat-icon>  En cas d’urgence, contacter :  </mat-label>
             <input formControlName="nom_contact" matInput placeholder="Nom & Prénom" name="nom_contact" id="nom_contact" >
           </mat-form-field>
 
@@ -515,9 +519,14 @@
             <input formControlName="rel_contact" matInput placeholder="Père, Mère, Frère ..." name="rel_contact" id="rel_contact" >
           </mat-form-field>
 
+          <mat-form-field class="example-full-width" appearance="outline">
+            <mat-label>Téléphone</mat-label>
+            <input type="number" matInput maxlength="16" placeholder="555-555-1234" formControlName="tel_contact" name="" id="tel_contact">
+            <mat-icon matSuffix>phone</mat-icon>
+          </mat-form-field>
 
           <mat-form-field appearance="outline" >
-            <mat-label>Adress</mat-label>
+            <mat-label>Adress  <mat-icon> location_on</mat-icon></mat-label>
             <textarea formControlName="adress_contact" matInput placeholder="Adresse" name="adress_contact" id="adress_contact" ></textarea>
           </mat-form-field>
 
@@ -536,17 +545,17 @@
             Informations Professionnelles
           </mat-panel-title>
           <mat-panel-description>
-
-            <mat-icon>map</mat-icon>
+            <span class="example-spacer"></span>
+            <mat-icon>work</mat-icon>
           </mat-panel-description>
         </mat-expansion-panel-header>
 
 
         <div class="titre3"><u>Collaborateur</u></div>
 
-        <mat-form-field appearance="outline" >
+        <mat-form-field appearance="outline" hidden >
           <mat-label>Identifiant</mat-label>
-          <input type="number" value="ID" matInput name="id" id="id" disabled >
+          <input type="number" formControlName="id" matInput name="id" id="id"  >
         </mat-form-field>
 
         <mat-form-field appearance="outline" class="">
@@ -570,7 +579,7 @@
         <div class="titre3"><u>Responsable</u></div>
 
         <mat-form-field appearance="outline">
-          <mat-label>Responsable</mat-label>
+          <mat-label><mat-icon>account_box</mat-icon>  Responsable</mat-label>
           <input formControlName="nom_respo" matInput placeholder="Nom & Prénom" name="nom_respo" id="nom_respo" >
         </mat-form-field>
 
@@ -582,19 +591,26 @@
 
         <mat-form-field appearance="outline">
           <mat-label>Email</mat-label>
-          <input matInput placeholder="email@example.com" [formControl]="email" formControlName="mail_respo" name="mail_respo" id="mail_respo" required>
+          <input matInput placeholder="email@example.com" [formControl]="email" formControlName="mail_respo" name="mail_respo" id="mail_respo" >
           <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
+          <mat-icon matSuffix>email</mat-icon>
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width" appearance="outline">
+          <mat-label>Téléphone</mat-label>
+          <input type="number" matInput maxlength="16" placeholder="555-555-1234" formControlName="tel_respo" name="" id="tel_respo">
+          <mat-icon matSuffix>phone</mat-icon>
         </mat-form-field>
 
         <div class="titre3"><u>Entreprise</u></div>
 
         <mat-form-field appearance="outline">
-          <mat-label>Nom de l’entreprise</mat-label>
+          <mat-label>Nom de l’entreprise  <mat-icon>domain</mat-icon></mat-label>
           <input formControlName="nom_entre" matInput placeholder="Nom de l’entreprise" name="nom_entre" id="nom_entre" >
         </mat-form-field>
 
         <mat-form-field appearance="outline" >
-          <mat-label>Adresse de l'entreprise</mat-label>
+          <mat-label>Adresse de l'entreprise  <mat-icon> location_on</mat-icon></mat-label>
           <textarea formControlName="add_entre" matInput placeholder="Adresse de l'entreprise" name="add_entre" id="add_entre" ></textarea>
         </mat-form-field>
 

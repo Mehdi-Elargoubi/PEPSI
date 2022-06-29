@@ -33,9 +33,9 @@ export class EmployeeService {
     }
 
     // Delete Employee
-    deleteEmployeeById(id: number, employee : Employee): Observable<Object>{
-      return this.httpClient.put(this.baseUrl+'/delete/'+id, employee)
-    }
+    // deleteEmployeeById(id: number, employee : Employee): Observable<Object>{
+    //   return this.httpClient.put(this.baseUrl+'/delete/'+id, employee)
+    // }
 
     deleteEmployee(id : number) : Observable<Object> {
       return this.httpClient.delete(this.baseUrl+id);
@@ -43,8 +43,8 @@ export class EmployeeService {
 
 
     // Update Employee
-    putEmployee(id : number,data:any) : Observable<Object> {
-      return this.httpClient.put(this.baseUrl+id, data);
+    putEmployee(data:any,id : number): Observable<Object> {
+      return this.httpClient.put<any>(this.baseUrl+id, data);
     }
 
 }
