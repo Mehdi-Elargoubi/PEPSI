@@ -20,3 +20,7 @@ table {
   background-color: #1c8eb7;
 }
 
+mat-toolbar{
+  background-color: rgb(249, 249, 249);
+}
+

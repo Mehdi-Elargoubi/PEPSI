@@ -1,0 +1,14 @@
+[
+  {
+    "nombre" : "Accueil",
+    "redirect" : ""
+  },
+  {
+    "nombre" : "Collaborateurs",
+    "redirect" : "/liste"
+  },
+  {
+    "nombre" : "Init",
+    "redirect" : "/accueil/init"
+  }
+]

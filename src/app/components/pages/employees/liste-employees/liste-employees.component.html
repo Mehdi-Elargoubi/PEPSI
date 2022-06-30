@@ -14,7 +14,7 @@
 
 
 <div class="container">
-  <div style="margin-top: 10px;">
+  <div style="margin-top: 10px;"  *ngIf="displayedColumns.length > 0">
 
     <mat-form-field appearance="standard">
       <mat-label>
@@ -123,6 +123,7 @@
     </div>
 
   </div>
+  <!-- <h2 *ngIf="displayedColumns.length === 0" > Aucun collaborateur existe</h2> -->
 </div>
 
 
