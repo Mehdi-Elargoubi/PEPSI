@@ -1,11 +1,17 @@
+<body>
+
+
 <div class="body">
-  <div class="login">
+  <div class="login c_form">
 
     <mat-spinner *ngIf="loading" class="spinner" diameter="50" ></mat-spinner>
 
     <form *ngIf="!loading" [formGroup]="form">
-      <img src="../../../assets/img/userCercle.png" alt="" width="100px" height="100px">
-      <h1>Login</h1>
+      <div class=" pt-3 pb-4 titre_con ">
+        Se connecter
+    </div>
+      <img src="../../../assets/img/aa.png" alt="" width="100px" height="100px">
+      <div style="padding : 15px;"></div>
 
       <mat-form-field appearance="fill" class="ancho">
         <mat-label>Login</mat-label>
@@ -25,3 +31,4 @@
 
   </div>
 </div>
+</body>

@@ -9,12 +9,14 @@ import { InitComponent } from './init/init.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import {MatToolbar, MatToolbarModule} from '@angular/material/toolbar';
 import {MatButtonModule} from '@angular/material/button';
+import {MatSelectModule} from '@angular/material/select';
 
 
 @NgModule({
   declarations: [
     InitComponent,
-    NavbarComponent
+    NavbarComponent,
+    InitComponent
 
 
   ],
@@ -23,11 +25,13 @@ import {MatButtonModule} from '@angular/material/button';
     AccueilRoutingModule,
     MatToolbarModule,
     MatIconModule,
-    MatButtonModule
+    MatButtonModule,
+    MatSelectModule
 
   ],
   exports: [
-    NavbarComponent
+    NavbarComponent,
+    InitComponent
   ]
 })
 export class AccueilModule { }

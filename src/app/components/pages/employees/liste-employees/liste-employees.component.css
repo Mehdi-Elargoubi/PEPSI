@@ -21,6 +21,24 @@ table {
 }
 
 mat-toolbar{
-  background-color: rgb(249, 249, 249);
+  /* background-color:  rgb(249, 249, 249); */
+  /* background: linear-gradient(180.17deg, #63A2D3 0.15%, #ADC4DC 99.85%); */
+  background-color: #64A2D3;
 }
 
+body{
+  /* background-color:#ADC4DC; */
+  /* background: linear-gradient(180.17deg, #63A2D3 0.15%, #ADC4DC 99.85%); */
+  /* background: linear-gradient(180.17deg, #63A2D3 0.15%, rgba(109, 167, 212, 0.82) 13.44%, rgba(130, 176, 215, 0.63) 57.06%, rgba(173, 196, 220, 0.82) 99.85%); */
+  background: linear-gradient(180.17deg, #63A2D3 0.15%, #77ABD5 26.42%, #87B3D7 48.75%, #ADC4DC 99.85%);
+}
+.colab{
+  font-size: xx-large;
+  font-family: 'Times New Roman', Times, serif;
+  margin-left: 20px;
+}
+
+.col{
+  font-size: 40px;
+  margin-right: 18px;
+}

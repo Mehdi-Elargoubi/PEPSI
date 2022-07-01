@@ -1,41 +1,30 @@
-<!-- <mat-toolbar color="">
-  <img src="../../../../assets/img/logo_VB.png" alt="" width="50px" height="50px" >
-
-  <mat-icon style="margin-left:40px; margin-right: 6px;">home</mat-icon>
-  <span >
-    Accueil
-  </span>
-  <mat-icon>arrow_drop_down</mat-icon>
-
-
-
-  <span class="example-spacer"></span>
-  <button mat-button>Accueil</button>
-  <button mat-button>Collaborateurs</button>
-  <button mat-button>Reporting</button>
-</mat-toolbar> -->
-
-
-
-  <mat-toolbar color="primary">
-      <img src="../../../../assets/img/logo_VB.png" alt="" width="50px" height="50px" >
-      <mat-icon style="margin-left:40px; ">home</mat-icon>
-      <span >
+  <mat-toolbar color="secondry">
+      <img src="../../../../assets/img/logo_VB.png" alt="" width="50px" height="50px" style="margin-right:40px ;" >
+      <!-- <mat-icon style="margin-left:40px; ">home</mat-icon> -->
+      <!-- <span >
         Accueil
-      </span>
+      </span> -->
+      <mat-form-field >
+        <mat-select >
+          <mat-option value="accueil" selected routerLink="accueil">
+            Accueil
+          </mat-option>
+          <mat-option value="collaborateurs" routerLink="liste">Collaborateurs</mat-option>
+          <mat-option value="absence" routerLink="absence">Absence</mat-option>
+          <mat-option value="reporting" routerLink="reporting">Reporting</mat-option>
+        </mat-select>
+      </mat-form-field>
 
-      <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+      <!-- <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
       <mat-icon>arrow_drop_down</mat-icon>
-    </button>
+    </button> -->
     <span class="example-spacer"></span>
-    <button mat-button routerLink="">Accueil</button>
-    <button mat-button routerLink="login">Login</button>
+    <button mat-button routerLink="accueil">Accueil</button>
     <button mat-button routerLink="liste" >Collaborateurs</button>
-    <button mat-button routerLink="/accueil/init">Init</button>
-    <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
-      <mat-icon>favorite</mat-icon>
-    </button>
-    <button mat-icon-button class="example-icon" routerLink="/logout">
+    <button mat-button routerLink="absence">Absence</button>
+    <button mat-button routerLink="reporting" style="margin-right: 50px;">Reporting</button>
+
+    <button mat-icon-button class="example-icon" routerLink="/logout" style="margin-right: 20px ;">
       <mat-icon>logout</mat-icon>
     </button>
   </mat-toolbar>

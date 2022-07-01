@@ -6,6 +6,7 @@ import { FormControl, Validators, FormGroup, FormBuilder,Validator, ControlValue
 import { MatFormField, MatFormFieldControl, MAT_FORM_FIELD } from '@angular/material/form-field';
 import { Subject } from 'rxjs';
 import { MatDialogRef,MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 
 
@@ -20,7 +21,7 @@ export class RecrutementComponent implements OnInit  {
   employeeForm! : FormGroup;
   actionBtn : String = "Ajouter";
   constructor(private formBuilder : FormBuilder, private employeeService : EmployeeService,
-              @Inject(MAT_DIALOG_DATA) public editData : any,
+              @Inject(MAT_DIALOG_DATA) public editData : any, private _snackbar : MatSnackBar,
               private dialogRef : MatDialogRef<RecrutementComponent>) { }
 
   ngOnInit(): void {
@@ -127,12 +128,22 @@ export class RecrutementComponent implements OnInit  {
         this.employeeService.addEmployee(this.employeeForm.value)
         .subscribe({
           next:(res)=>{
-            alert('Collaborateur ajouter avec succès')
+              this._snackbar.open('Collaborateur ajouter avec succès','',{
+                duration : 1500,
+                horizontalPosition : 'center',
+                verticalPosition: 'top',
+              })
+            // alert('Collaborateur ajouter avec succès')
             this.employeeForm.reset();
             this.dialogRef.close('save')
           },
           error:()=>{
-            alert("Erreur de l'ajout du collaborateur")
+            this._snackbar.open("Erreur de l'ajout du collaborateur",'',{
+              duration : 1500,
+              horizontalPosition : 'center',
+              verticalPosition: 'top',
+            })
+            // alert("Erreur de l'ajout du collaborateur")
           }
         })
       }
@@ -146,12 +157,22 @@ export class RecrutementComponent implements OnInit  {
     this.employeeService.putEmployee(this.employeeForm.value,this.editData.id)
     .subscribe({
       next:(res)=>{
-        alert("Collaborateur modifier avec succès");
+        this._snackbar.open("Collaborateur modifier avec succès",'',{
+          duration : 1500,
+          horizontalPosition : 'center',
+          verticalPosition: 'top',
+        })
+        // alert("Collaborateur modifier avec succès");
         this.employeeForm.reset();
         this.dialogRef.close('update');
       },
       error:()=>{
-        alert("Erreur de modification du collaborateur !!!")
+        this._snackbar.open("Erreur de modification du collaborateur !!!",'',{
+          duration : 1500,
+          horizontalPosition : 'center',
+          verticalPosition: 'top',
+        })
+        // alert("Erreur de modification du collaborateur !!!")
       }
     })
   }

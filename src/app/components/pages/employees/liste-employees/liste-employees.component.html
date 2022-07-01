@@ -1,20 +1,20 @@
-<p>
-  <mat-toolbar color="primary">
+  <mat-toolbar color="secondry">
     <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
-      <mat-icon>supervisor_account</mat-icon>
+      <!-- <mat-icon>supervisor_account</mat-icon> -->
+      <mat-icon class="col">groups</mat-icon>
     </button>
-    <span>Collaborateurs</span>
+      <span class="colab" >Collaborateurs</span>
     <span class="example-spacer"></span>
   <button mat-mini-fab color="accent" (click)="openDialog()"  matTooltip="Ajouter un Collaborateur" matTooltipClass="example-tooltip"  aria-label="Button that shows tooltip" class="example-button">
-    <mat-icon>add</mat-icon>
+    <mat-icon>person_add</mat-icon>
   </button>
   </mat-toolbar>
-</p>
 
 
+<body>
 
 <div class="container">
-  <div style="margin-top: 10px;"  *ngIf="displayedColumns.length > 0">
+  <div style="padding-top: 10px;"  *ngIf="displayedColumns.length > 0">
 
     <mat-form-field appearance="standard">
       <mat-label>
@@ -89,7 +89,8 @@
             matTooltipClass="example-tooltip-red" aria-label="Button that shows tooltip" class="example-button">
               <mat-icon>delete</mat-icon>
             </button>
-            <button mat-icon-button [matMenuTriggerFor]="menu" >
+            <button mat-icon-button [matMenuTriggerFor]="menu" matTooltip="Plus d'informations " matTooltipClass="example-tooltip"
+            matTooltipClass="example-tooltip-red" aria-label="Button that shows tooltip" class="example-button" >
               <mat-icon>more_vert</mat-icon>
             </button>
             <mat-menu #menu="matMenu">
@@ -123,8 +124,9 @@
     </div>
 
   </div>
-  <!-- <h2 *ngIf="displayedColumns.length === 0" > Aucun collaborateur existe</h2> -->
+  <!-- <h2 *ngIf="displayedColumns.length >= 0" > Aucun collaborateur existe</h2> -->
 </div>
 
 
 
+</body>

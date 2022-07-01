@@ -6,13 +6,12 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { ListeEmployeesComponent } from '../pages/employees/liste-employees/liste-employees.component';
 
 const routes: Routes = [
-  { path : '', component : AccueilComponent, children: [
+  { path : 'accueil', component : AccueilComponent, children: [
       {path : 'init' , component : InitComponent},
-      // {path : '', component : NavbarComponent },
       {path : 'liste', component : ListeEmployeesComponent },
+      // {path : 'accueil', component : AccueilComponent },
 
-  ] }
-  // { path : 'navbar', component : NavbarComponent }
+  ] },
 ];
 
 @NgModule({

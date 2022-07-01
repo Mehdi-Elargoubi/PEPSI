@@ -6,6 +6,7 @@ import {AfterViewInit, ViewChild} from '@angular/core';
 import {MatPaginator} from '@angular/material/paginator';
 import {MatSort} from '@angular/material/sort';
 import {MatTableDataSource} from '@angular/material/table';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-liste-employees',
@@ -20,7 +21,7 @@ export class ListeEmployeesComponent implements OnInit {
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
 
-  constructor(private dialog : MatDialog, private employeeService : EmployeeService) { }
+  constructor(private dialog : MatDialog, private employeeService : EmployeeService, private _snackbar : MatSnackBar) { }
 
   ngOnInit(): void {
     this.getAllEmployees();
@@ -55,7 +56,13 @@ export class ListeEmployeesComponent implements OnInit {
 
       },
       error:(err)=>{
-        alert("Erreur de récuperation des données")
+        this._snackbar.open('Erreur de récupération des données  !!! ','OK',{
+          duration : 3000,
+          horizontalPosition : 'center',
+          verticalPosition: 'top',
+
+        })
+        // alert("Erreur de récuperation des données")
       }
     })
   }
@@ -85,11 +92,21 @@ export class ListeEmployeesComponent implements OnInit {
     this.employeeService.deleteEmployee(id)
     .subscribe({
       next:(res)=>{
-        alert("Collaborateur supprimer avec succès");
+        this._snackbar.open('Collaborateur supprimer avec succès','',{
+          duration : 1500,
+          horizontalPosition : 'center',
+          verticalPosition: 'top',
+        })
+        // alert("Collaborateur supprimer avec succès");
         this.getAllEmployees();
       },
       error:()=>{
-        alert("Erreur de suppression du collaborateur")
+        this._snackbar.open('Erreur de supression du collaborateur !!!','',{
+          duration : 1500,
+          horizontalPosition : 'center',
+          verticalPosition: 'top',
+        })
+        // alert("Erreur de suppression du collaborateur")
     }
     })
 
